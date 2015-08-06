@@ -1,0 +1,4 @@
+#!/bin/bash
+
+wget -O FDroid.apk https://f-droid.org/FDroid.apk
+
