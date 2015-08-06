@@ -8,4 +8,13 @@ apps without prompting the user.
 To use
 ------
 
+While inside CyanogenMod 12.1 build directory:
+
+    $ cd .repo/local_manifests
+    $ wget -O fdroidapk.xml https://raw.githubusercontent.com/Pwnna/android_packages_apps_fdroidapk/cm-12.1/local_manifest.xml
+    $ croot
+    $ repo sync
+
+This should put this into packages/apps/FDroid, and should include the
+latest FDroid in your ROM!
 
