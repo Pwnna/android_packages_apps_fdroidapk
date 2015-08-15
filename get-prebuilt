@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ ! -f FDroid.apk ]; then
-  echo "Downloading F-Droid..."
-  wget -O FDroid.apk https://f-droid.org/FDroid.apk
-else
-  echo "Skipping F-Droid download... already exists."
-fi
-
