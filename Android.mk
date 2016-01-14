@@ -5,9 +5,8 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := F-Droid
 LOCAL_MODULE_TAGS := optional
 LOCAL_PACKAGE_NAME := F-Droid
-LOCAL_SRC_FILES := F-Droid.apk
+LOCAL_SRC_FILES := org.fdroid.fdroid.apk
 
-LOCAL_PRIVILEGED_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED
 
 LOCAL_MODULE_CLASS := APPS
@@ -19,7 +18,29 @@ FDROID_TARGET := $(LOCAL_PATH)/$(LOCAL_SRC_FILES)
 
 .PHONY: $(FDROID_TARGET)
 $(FDROID_TARGET):
-				cd $(FDROID_ROOT) && python download_fdroid.py
+				cd $(FDROID_ROOT) && python download_fdroid.py org.fdroid.fdroid
+
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := F-DroidPrivilegeExtension
+LOCAL_MODULE_TAGS := optional
+LOCAL_PACKAGE_NAME := F-DroidPrivilegeExtension
+LOCAL_SRC_FILES := org.fdroid.fdroid.privileged.apk
+
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_CERTIFICATE := PRESIGNED
+
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+
+FDROID_ROOT := $(LOCAL_PATH)
+FDROID_PRIVILEGED_TARGET := $(LOCAL_PATH)/$(LOCAL_SRC_FILES)
+
+.PHONY: $(FDROID_PRIVILEGED_TARGET)
+$(FDROID_PRIVILEGED_TARGET):
+				cd $(FDROID_ROOT) && python download_fdroid.py org.fdroid.fdroid.privileged
 
 include $(BUILD_PREBUILT)
 
